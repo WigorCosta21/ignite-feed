@@ -2,7 +2,11 @@ import { ThumbsUp, Trash } from "@phosphor-icons/react";
 import styles from "./Comment.module.css";
 import Avatar from "./Avatar";
 
-const Comment = () => {
+type Props = {
+  content: string;
+};
+
+const Comment = ({ content }: Props) => {
   return (
     <div className={styles.comment}>
       <Avatar hasBorder={false} src="https://github.com/WigorCosta21.png" />
@@ -24,7 +28,7 @@ const Comment = () => {
             </button>
           </header>
 
-          <p>Muito bom Devon, parabéns!! 👏👏</p>
+          <p>{content}</p>
         </div>
 
         <footer>
