@@ -4,9 +4,14 @@ import Avatar from "./Avatar";
 
 type Props = {
   content: string;
+  onDeleteComment: (comment: string) => void;
 };
 
-const Comment = ({ content }: Props) => {
+const Comment = ({ content, onDeleteComment }: Props) => {
+  const handleDeleteComment = () => {
+    onDeleteComment(content);
+  };
+
   return (
     <div className={styles.comment}>
       <Avatar hasBorder={false} src="https://github.com/WigorCosta21.png" />
@@ -23,7 +28,7 @@ const Comment = ({ content }: Props) => {
               </time>
             </div>
 
-            <button title="Deletar comentário">
+            <button onClick={handleDeleteComment} title="Deletar comentário">
               <Trash size={24} />
             </button>
           </header>

@@ -13,7 +13,7 @@ type Props = {
 };
 
 const Post = ({ post }: Props) => {
-  const [comments, setComments] = useState<string[]>([""]);
+  const [comments, setComments] = useState<string[]>(["Post muito bacana!!!"]);
 
   const [newCommentText, setNewCommentText] = useState("");
 
@@ -40,6 +40,14 @@ const Post = ({ post }: Props) => {
     setNewCommentText((event.target as HTMLFormElement).value);
   };
 
+  const deleteComment = (commentToDelete: string) => {
+    const commentsWithouDeletedOne = comments.filter((comment) => {
+      return comment !== commentToDelete;
+    });
+
+    setComments(commentsWithouDeletedOne);
+  };
+
   return (
     <article className={styles.post}>
       <header>
@@ -60,12 +68,12 @@ const Post = ({ post }: Props) => {
       </header>
 
       <div className={styles.content}>
-        {post.content.map((item, index) => {
+        {post.content.map((item) => {
           if (item.type === "paragraph") {
-            return <p key={index}>{item.content}</p>;
+            return <p key={item.content}>{item.content}</p>;
           } else if (item.type === "link") {
             return (
-              <p>
+              <p key={item.content}>
                 <a href="">{item.content}</a>
               </p>
             );
@@ -87,8 +95,12 @@ const Post = ({ post }: Props) => {
       </form>
 
       <div className={styles.commentList}>
-        {comments.map((comment, index) => (
-          <Comment key={index} content={comment} />
+        {comments.map((comment) => (
+          <Comment
+            key={comment}
+            content={comment}
+            onDeleteComment={deleteComment}
+          />
         ))}
       </div>
     </article>
