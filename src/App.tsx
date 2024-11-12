@@ -1,6 +1,8 @@
 import { Header } from "./components/Header";
-import Post from "./components/Post";
 import Sidebar from "./components/Sidebar";
+import Post from "./components/Post";
+
+import { Post as postData } from "./data/Posts";
 
 import styles from "./App.module.css";
 import "./global.css";
@@ -13,8 +15,9 @@ const App = () => {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <Post />
-          <Post />
+          {postData.map((post) => (
+            <Post key={post.id} post={post} />
+          ))}
         </main>
       </div>
     </>

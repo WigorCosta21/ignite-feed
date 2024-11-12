@@ -23,7 +23,7 @@ export const Post: IPost[] = [
         content: "@WigorCosta21",
       },
     ],
-    publishedAt: new Date("2024-11-10 22:12:00"),
+    publishedAt: new Date("2024-11-09 19:12:53"),
   },
   {
     id: 2,
@@ -47,6 +47,6 @@ export const Post: IPost[] = [
         content: "@diegofernandes",
       },
     ],
-    publishedAt: new Date("2024-11-10 22:12:00"),
+    publishedAt: new Date("2024-11-11 22:12:00"),
   },
 ];
