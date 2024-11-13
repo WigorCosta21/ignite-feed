@@ -37,7 +37,14 @@ const Post = ({ post }: Props) => {
   };
 
   const handleNewCommentChange = (event: FormEvent) => {
+    (event.target as HTMLTextAreaElement).setCustomValidity("");
     setNewCommentText((event.target as HTMLFormElement).value);
+  };
+
+  const handleNewCommentInvalid = (event: FormEvent) => {
+    (event.target as HTMLTextAreaElement).setCustomValidity(
+      "Esse campo é obrigatório!"
+    );
   };
 
   const deleteComment = (commentToDelete: string) => {
@@ -47,6 +54,8 @@ const Post = ({ post }: Props) => {
 
     setComments(commentsWithouDeletedOne);
   };
+
+  const isNewCommentEmpty = newCommentText.length === 0;
 
   return (
     <article className={styles.post}>
@@ -88,9 +97,13 @@ const Post = ({ post }: Props) => {
           placeholder="Deixe um comentário"
           value={newCommentText}
           onChange={handleNewCommentChange}
+          required
+          onInvalid={handleNewCommentInvalid}
         />
         <footer>
-          <button type="submit">Publicar</button>
+          <button type="submit" disabled={isNewCommentEmpty}>
+            Publicar
+          </button>
         </footer>
       </form>
 
