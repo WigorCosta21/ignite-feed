@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 import { format, formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale/pt-BR";
 
@@ -36,12 +36,14 @@ const Post = ({ post }: Props) => {
     setNewCommentText("");
   };
 
-  const handleNewCommentChange = (event: FormEvent) => {
+  const handleNewCommentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     (event.target as HTMLTextAreaElement).setCustomValidity("");
-    setNewCommentText((event.target as HTMLFormElement).value);
+    setNewCommentText(event.target.value);
   };
 
-  const handleNewCommentInvalid = (event: FormEvent) => {
+  const handleNewCommentInvalid = (
+    event: InvalidEvent<HTMLTextAreaElement>
+  ) => {
     (event.target as HTMLTextAreaElement).setCustomValidity(
       "Esse campo é obrigatório!"
     );
