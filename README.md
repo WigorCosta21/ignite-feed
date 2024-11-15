@@ -52,7 +52,7 @@ Ignite Feed é uma aplicação front-end construída em React que simula uma red
 
 ### Sidebar
 
-- Mostra informações do usuário logado e permite edição de perfil.
+- Mostra informações do usuário logado.
 
 ### Post
 
@@ -65,14 +65,5 @@ Ignite Feed é uma aplicação front-end construída em React que simula uma red
 ### Avatar
 
 - Gerencia a exibição do avatar com ou sem borda.
-
----
-
-## ✨ Melhorias Futuras
-
-- Adicionar autenticação e perfis de usuários.
-- Implementar responsividade total para dispositivos móveis.
-- Conectar a um backend para persistência de dados.
-- Criar notificações para interações nos posts.
 
 ---
