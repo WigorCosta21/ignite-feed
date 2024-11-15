@@ -1,50 +1,78 @@
-# React + TypeScript + Vite
+# Ignite Feed
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ignite Feed é uma aplicação front-end construída em React que simula uma rede social minimalista. O projeto permite a publicação de posts, interação através de comentários e curtidas, além de funcionalidade para exclusão de comentários.
 
-Currently, two official plugins are available:
+## 📜 Recursos Principais
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Publicação de Posts:** Exibição de posts com avatar, autor, data de publicação e conteúdo formatado.
+- **Interação com Comentários:** Adicione, exclua ou curta comentários nos posts.
+- **Interface Responsiva:** Design limpo e organizado, com foco na experiência do usuário.
+- **Componentização:** Componentes modulares como `Header`, `Sidebar`, `Avatar`, `Post` e `Comment`.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🚀 Tecnologias Utilizadas
 
-- Configure the top-level `parserOptions` property like this:
+- **React** (Componentização e Hooks: `useState`)
+- **TypeScript** (Tipagem estática)
+- **CSS Modules** (Estilização modular)
+- **Phosphor Icons** (Ícones modernos e personalizáveis)
+- **date-fns** (Manipulação e formatação de datas)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🛠️ Como Executar
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. **Clone o repositório:**
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+   ```bash
+   git clone https://github.com/seu-usuario/ignite-feed.git
+   cd ignite-feed
+   ```
+
+2. **Instale as dependências:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Inicie o servidor de desenvolvimento:**
+
+   ```bash
+   npm run dev
+   ```
+
+---
+
+## 💡 Funcionalidades em Destaque
+
+### Header
+
+- Exibe o logotipo e cria o cabeçalho da aplicação.
+
+### Sidebar
+
+- Mostra informações do usuário logado e permite edição de perfil.
+
+### Post
+
+- Recebe os dados dos posts (autor, conteúdo, data) e renderiza dinamicamente.
+
+### Comment
+
+- Oferece funcionalidades de adicionar, curtir e excluir comentários.
+
+### Avatar
+
+- Gerencia a exibição do avatar com ou sem borda.
+
+---
+
+## ✨ Melhorias Futuras
+
+- Adicionar autenticação e perfis de usuários.
+- Implementar responsividade total para dispositivos móveis.
+- Conectar a um backend para persistência de dados.
+- Criar notificações para interações nos posts.
+
+---
